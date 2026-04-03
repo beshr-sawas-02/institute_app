@@ -122,32 +122,52 @@ class AppTheme {
 
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
+        // ── هذا هو المهم — يتغير مع الثيم ────────────────────────────
         fillColor: surface2,
         contentPadding: const EdgeInsets.symmetric(
             horizontal: AppConstants.paddingMedium,
             vertical: AppConstants.paddingMedium),
         border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
+            borderRadius:
+            BorderRadius.circular(AppConstants.radiusMedium),
             borderSide: BorderSide(color: borderCol, width: 1)),
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
+            borderRadius:
+            BorderRadius.circular(AppConstants.radiusMedium),
             borderSide: BorderSide(color: borderCol, width: 1)),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
+            borderRadius:
+            BorderRadius.circular(AppConstants.radiusMedium),
             borderSide: BorderSide(color: primary, width: 1.5)),
         errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
+            borderRadius:
+            BorderRadius.circular(AppConstants.radiusMedium),
             borderSide: BorderSide(color: errorCol, width: 1)),
         focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
+            borderRadius:
+            BorderRadius.circular(AppConstants.radiusMedium),
             borderSide: BorderSide(color: errorCol, width: 1.5)),
-        hintStyle: AppTextStyles.inputHint.copyWith(color: textMuted),
-        labelStyle: AppTextStyles.inputLabel.copyWith(color: textMuted),
-        errorStyle: AppTextStyles.inputError,
+        // ── ألوان النص والـ hint تتبع الثيم ──────────────────────────
+        hintStyle: TextStyle(
+          fontFamily: 'Cairo',
+          fontSize: 14,
+          color: textMuted,
+          height: 1.5,
+        ),
+        labelStyle: TextStyle(
+          fontFamily: 'Cairo',
+          fontSize: 13,
+          color: textMuted,
+        ),
+        errorStyle: TextStyle(
+          fontFamily: 'Cairo',
+          fontSize: 12,
+          color: errorCol,
+        ),
+        // ── ألوان الأيقونات تتبع الثيم ────────────────────────────────
         prefixIconColor: textMuted,
         suffixIconColor: textMuted,
       ),
-
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: surface,
         selectedItemColor: primary,

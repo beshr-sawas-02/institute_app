@@ -1,5 +1,3 @@
-// lib/widgets/custom_text_field.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../utils/app_colors.dart';
@@ -54,11 +52,36 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ── نقرأ الثيم من context مباشرة ──────────────────────────────────
+    final scheme = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    // لون الخلفية: يتغير تلقائياً مع الثيم
+    final fillColor = enabled
+        ? scheme.surfaceContainerHighest
+        : scheme.surfaceContainerHighest.withOpacity(0.5);
+
+    // لون النص: يتغير تلقائياً
+    final textColor = scheme.onSurface;
+
+    // لون الـ hint: أفتح من النص
+    final hintColor = scheme.onSurface.withOpacity(0.45);
+
+    // لون الـ border
+    final borderColor = isDark
+        ? AppColors.grey700
+        : AppColors.grey300;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(label, style: AppTextStyles.inputLabel),
+        Text(
+          label,
+          style: AppTextStyles.inputLabel.copyWith(
+            color: scheme.onSurface.withOpacity(0.8),
+          ),
+        ),
         const SizedBox(height: 6),
         TextFormField(
           controller: controller,
@@ -78,54 +101,70 @@ class CustomTextField extends StatelessWidget {
           textInputAction: textInputAction,
           onFieldSubmitted: onSubmitted,
           textDirection: TextDirection.rtl,
-          style: AppTextStyles.inputText,
+          // ── لون النص يتبع الثيم ────────────────────────────────────
+          style: TextStyle(
+            fontFamily: 'Cairo',
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: textColor,
+            height: 1.5,
+          ),
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: AppTextStyles.inputHint,
+            hintStyle: TextStyle(
+              fontFamily: 'Cairo',
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: hintColor,
+              height: 1.5,
+            ),
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,
+            // ── fillColor يتبع الثيم ───────────────────────────────
             filled: true,
-            fillColor: enabled ? AppColors.white : AppColors.grey100,
+            fillColor: fillColor,
             counterText: '',
             contentPadding: const EdgeInsets.symmetric(
               horizontal: AppConstants.paddingMedium,
               vertical: 14,
             ),
+            // ── Borders تتبع الثيم ────────────────────────────────
             border: OutlineInputBorder(
-              borderRadius:
-              BorderRadius.circular(AppConstants.radiusMedium),
-              borderSide:
-              BorderSide(color: AppColors.border, width: 1),
+              borderRadius: BorderRadius.circular(
+                  AppConstants.radiusMedium),
+              borderSide: BorderSide(
+                  color: borderColor, width: 1),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius:
-              BorderRadius.circular(AppConstants.radiusMedium),
-              borderSide:
-              BorderSide(color: AppColors.border, width: 1),
+              borderRadius: BorderRadius.circular(
+                  AppConstants.radiusMedium),
+              borderSide: BorderSide(
+                  color: borderColor, width: 1),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius:
-              BorderRadius.circular(AppConstants.radiusMedium),
+              borderRadius: BorderRadius.circular(
+                  AppConstants.radiusMedium),
               borderSide: BorderSide(
                   color: AppColors.primary, width: 1.5),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius:
-              BorderRadius.circular(AppConstants.radiusMedium),
-              borderSide:
-              BorderSide(color: AppColors.error, width: 1),
+              borderRadius: BorderRadius.circular(
+                  AppConstants.radiusMedium),
+              borderSide: BorderSide(
+                  color: AppColors.error, width: 1),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderRadius:
-              BorderRadius.circular(AppConstants.radiusMedium),
+              borderRadius: BorderRadius.circular(
+                  AppConstants.radiusMedium),
               borderSide: BorderSide(
                   color: AppColors.error, width: 1.5),
             ),
             disabledBorder: OutlineInputBorder(
-              borderRadius:
-              BorderRadius.circular(AppConstants.radiusMedium),
-              borderSide:
-              const BorderSide(color: AppColors.grey300, width: 1),
+              borderRadius: BorderRadius.circular(
+                  AppConstants.radiusMedium),
+              borderSide: BorderSide(
+                  color: borderColor.withOpacity(0.5),
+                  width: 1),
             ),
           ),
         ),
@@ -152,20 +191,42 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final borderColor = isDark
+        ? AppColors.grey700
+        : AppColors.grey300;
+
     return TextFormField(
       controller: controller,
       onChanged: onChanged,
       textDirection: TextDirection.rtl,
-      style: AppTextStyles.inputText,
+      style: TextStyle(
+        fontFamily: 'Cairo',
+        fontSize: 14,
+        color: scheme.onSurface,
+        height: 1.5,
+      ),
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: AppTextStyles.inputHint,
-        prefixIcon:
-        const Icon(Icons.search, color: AppColors.grey500, size: 22),
+        hintStyle: TextStyle(
+          fontFamily: 'Cairo',
+          fontSize: 14,
+          color: scheme.onSurface.withOpacity(0.45),
+          height: 1.5,
+        ),
+        prefixIcon: Icon(
+          Icons.search,
+          color: scheme.onSurface.withOpacity(0.5),
+          size: 22,
+        ),
         suffixIcon: controller?.text.isNotEmpty == true
             ? IconButton(
-          icon: const Icon(Icons.close,
-              color: AppColors.grey500, size: 20),
+          icon: Icon(
+            Icons.close,
+            color: scheme.onSurface.withOpacity(0.5),
+            size: 20,
+          ),
           onPressed: () {
             controller?.clear();
             onClear?.call();
@@ -174,21 +235,25 @@ class SearchTextField extends StatelessWidget {
         )
             : null,
         filled: true,
-        fillColor: AppColors.white,
+        fillColor: scheme.surfaceContainerHighest,
         contentPadding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.paddingMedium, vertical: 12),
+            horizontal: AppConstants.paddingMedium,
+            vertical: 12),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppConstants.radiusLarge),
-          borderSide: BorderSide(color: AppColors.border),
+          borderRadius: BorderRadius.circular(
+              AppConstants.radiusLarge),
+          borderSide: BorderSide(color: borderColor),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppConstants.radiusLarge),
-          borderSide: BorderSide(color: AppColors.border),
+          borderRadius: BorderRadius.circular(
+              AppConstants.radiusLarge),
+          borderSide: BorderSide(color: borderColor),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppConstants.radiusLarge),
-          borderSide:
-          BorderSide(color: AppColors.primary, width: 1.5),
+          borderRadius: BorderRadius.circular(
+              AppConstants.radiusLarge),
+          borderSide: BorderSide(
+              color: AppColors.primary, width: 1.5),
         ),
       ),
     );
