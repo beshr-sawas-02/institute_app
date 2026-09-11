@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
@@ -32,10 +32,10 @@ class EmptyWidget extends StatelessWidget {
               width: 90,
               height: 90,
               decoration: BoxDecoration(
-                color: AppColors.primaryLight.withOpacity(0.12),
+                color: AppColors.primaryLight.withValues(alpha: 0.12),
                 shape: BoxShape.circle,
               ),
-              child: Icon(icon, size: 44, color: AppColors.primary.withOpacity(0.5)),
+              child: Icon(icon, size: 44, color: AppColors.primary.withValues(alpha: 0.5)),
             ),
             const SizedBox(height: 20),
             Text(title,
@@ -86,7 +86,7 @@ class AppErrorWidget extends StatelessWidget {
               width: 90,
               height: 90,
               decoration: BoxDecoration(
-                color: AppColors.errorLight.withOpacity(0.15),
+                color: AppColors.errorLight.withValues(alpha: 0.15),
                 shape: BoxShape.circle,
               ),
               child: Icon(Icons.wifi_off_rounded,

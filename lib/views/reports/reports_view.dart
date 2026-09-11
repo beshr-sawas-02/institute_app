@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/report_controller.dart';
 import '../../controllers/locale_controller.dart';
@@ -7,7 +7,7 @@ import '../../utils/app_text_styles.dart';
 import '../../utils/helpers.dart';
 import '../../utils/constants.dart';
 import '../../widgets/app_widgets.dart';
-import '../../widgets/empty_widget.dart' hide ErrorWidget;
+import '../../widgets/empty_widget.dart';
 import '../../widgets/loading_widget.dart';
 import '../../widgets/custom_button.dart';
 import '../../data/models/report_model.dart';
@@ -138,7 +138,7 @@ class _MonthlyReportsTab extends StatelessWidget {
               color: AppColors.infoLight,
               borderRadius: BorderRadius.circular(14),
               border:
-              Border.all(color: AppColors.info.withOpacity(0.2)),
+              Border.all(color: AppColors.info.withValues(alpha: 0.2)),
             ),
             child: Row(
               children: [
@@ -229,8 +229,9 @@ class _MonthYearPicker extends StatelessWidget {
                                 AppConstants.getMonthName(i + 1)),
                           )),
                       onChanged: (v) {
-                        if (v != null)
+                        if (v != null) {
                           controller.selectedMonth.value = v;
+                        }
                       },
                     ),
                   ),
@@ -267,8 +268,9 @@ class _MonthYearPicker extends StatelessWidget {
                             value: year, child: Text('$year'));
                       }),
                       onChanged: (v) {
-                        if (v != null)
+                        if (v != null) {
                           controller.selectedYear.value = v;
+                        }
                       },
                     ),
                   ),
@@ -440,7 +442,7 @@ class _MonthlyReportResult extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
                 AppColors.primary,
-                AppColors.primary.withOpacity(0.85)
+                AppColors.primary.withValues(alpha: 0.85)
               ]),
               borderRadius: BorderRadius.circular(14),
             ),
@@ -467,7 +469,7 @@ class _MonthlyReportResult extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 10, vertical: 5),
                   decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Colors.white.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(8)),
                   child: Text(
                       'attendance_student_count'.tr
@@ -612,7 +614,7 @@ class _StudentReportCard extends StatelessWidget {
                         width: 36,
                         height: 36,
                         decoration: BoxDecoration(
-                            color: aColor.withOpacity(0.1),
+                            color: aColor.withValues(alpha: 0.1),
                             borderRadius:
                             BorderRadius.circular(8)),
                         child: Icon(
@@ -740,7 +742,7 @@ class _ReportCard extends StatelessWidget {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                  color: color.withOpacity(0.12),
+                  color: color.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(12)),
               child: Icon(icon, color: color, size: 22),
             ),
@@ -879,20 +881,22 @@ class _ReportDetailSheet extends StatelessWidget {
   }
 
   List<Widget> _buildDataSection(BuildContext context) {
-    if (report.type == 'attendance')
+    if (report.type == 'attendance') {
       return _buildAttendanceData(context);
-    if (report.type == 'financial')
+    }
+    if (report.type == 'financial') {
       return _buildFinancialData(context);
+    }
     if (report.type == 'performance') {
-      if (report.data.containsKey('reports'))
+      if (report.data.containsKey('reports')) {
         return _buildMonthlyData(context);
+      }
       return _buildPerformanceData(context);
     }
     return [];
   }
 
   List<Widget> _buildMonthlyData(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
     final d = report.data;
     final period = d['period'] as Map<String, dynamic>? ?? {};
     final reports = d['reports'] as List? ?? [];
@@ -904,7 +908,7 @@ class _ReportDetailSheet extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
             AppColors.primary,
-            AppColors.primary.withOpacity(0.85)
+            AppColors.primary.withValues(alpha: 0.85)
           ]),
           borderRadius: BorderRadius.circular(14),
         ),
@@ -936,7 +940,7 @@ class _ReportDetailSheet extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(8)),
               child: Text('${reports.length} ${'student'.tr}',
                   style: const TextStyle(
@@ -1210,7 +1214,7 @@ class _CreateReportSheetState extends State<_CreateReportSheet> {
                             vertical: 10),
                         decoration: BoxDecoration(
                           color: selected
-                              ? AppColors.primary.withOpacity(0.1)
+                              ? AppColors.primary.withValues(alpha: 0.1)
                               : scheme.surfaceContainerHighest,
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
@@ -1387,8 +1391,9 @@ class _DateField extends StatelessWidget {
           lastDate: DateTime(2030),
           locale: localeCtrl.currentLocale.value,
         );
-        if (picked != null)
+        if (picked != null) {
           onPicked(picked.toIso8601String().split('T').first);
+        }
       },
       child: Container(
         padding: const EdgeInsets.symmetric(
@@ -1443,7 +1448,7 @@ class _ExportButtonState extends State<_ExportButton> {
         decoration: BoxDecoration(
           color: _loading
               ? AppColors.grey100
-              : AppColors.primary.withOpacity(0.1),
+              : AppColors.primary.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
               color:

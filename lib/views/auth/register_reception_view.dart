@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
 import '../../utils/app_colors.dart';
@@ -72,7 +72,7 @@ class _RegisterReceptionViewState extends State<RegisterReceptionView> {
                 width: 80,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: AppColors.secondary.withOpacity(0.12),
+                  color: AppColors.secondary.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(22),
                 ),
                 child: Icon(Icons.badge_outlined,
@@ -102,7 +102,7 @@ class _RegisterReceptionViewState extends State<RegisterReceptionView> {
                   color: AppColors.warningLight,
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                      color: AppColors.warning.withOpacity(0.2)),
+                      color: AppColors.warning.withValues(alpha: 0.2)),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,

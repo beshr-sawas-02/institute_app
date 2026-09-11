@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
 import '../../data/repositories/auth_repository.dart';
@@ -73,7 +73,7 @@ class _SplashViewState extends State<SplashView>
                   width: 90,
                   height: 90,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.12),
+                    color: Colors.white.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(24),
                   ),
                   child: const Icon(Icons.school_rounded,
@@ -94,7 +94,7 @@ class _SplashViewState extends State<SplashView>
                   child: CircularProgressIndicator(
                     strokeWidth: 2.5,
                     valueColor: AlwaysStoppedAnimation(
-                        Colors.white.withOpacity(0.6)),
+                        Colors.white.withValues(alpha: 0.6)),
                   ),
                 ),
               ],

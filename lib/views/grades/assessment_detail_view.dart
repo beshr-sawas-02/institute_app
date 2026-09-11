@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/assessment_controller.dart';
 import '../../controllers/locale_controller.dart';
+import '../../data/models/assessment_model.dart';
 import '../../routes/app_routes.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_styles.dart';
@@ -19,10 +20,10 @@ class AssessmentDetailView extends GetView<AssessmentController> {
 
     return Obx(() {
       final a = controller.selectedAssessment.value;
-      if (a == null)
+      if (a == null) {
         return const Scaffold(
             body: Center(child: Text('—')));
-
+      }
       final color = a.gradeColor ?? AppColors.grey400;
       return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -59,15 +60,15 @@ class AssessmentDetailView extends GetView<AssessmentController> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      color.withOpacity(0.15),
-                      color.withOpacity(0.05)
+                      color.withValues(alpha: 0.15),
+                      color.withValues(alpha: 0.05)
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
                   border:
-                  Border.all(color: color.withOpacity(0.2)),
+                  Border.all(color: color.withValues(alpha: 0.2)),
                 ),
                 child: Column(
                   children: [
@@ -193,8 +194,6 @@ class _AssessmentFormViewState extends State<AssessmentFormView> {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
@@ -456,7 +455,7 @@ class _AssessmentFormViewState extends State<AssessmentFormView> {
             horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
           color: isSelected
-              ? AppColors.primary.withOpacity(0.1)
+              ? AppColors.primary.withValues(alpha: 0.1)
               : scheme.surface,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
@@ -519,7 +518,6 @@ class StudentAssessmentsView
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
     final args = Get.arguments as Map?;
     final studentId = args?['studentId'] as int?;
     final studentName =
@@ -580,7 +578,7 @@ class StudentAssessmentsView
 }
 
 class _AssessmentCard extends StatelessWidget {
-  final assessment;
+  final AssessmentModel assessment;
   const _AssessmentCard({required this.assessment});
 
   @override
@@ -609,7 +607,7 @@ class _AssessmentCard extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 shape: BoxShape.circle),
             child: Center(
               child: Text(
@@ -713,7 +711,8 @@ class _StudentDropdownState extends State<_StudentDropdown> {
     final validValue =
     items.any((i) => i.value == _selected) ? _selected : null;
     return DropdownButtonFormField<int>(
-      value: validValue,
+      key: ValueKey('student_$validValue'),
+      initialValue: validValue,
       decoration: widget.inputDeco,
       dropdownColor: scheme.surface,
       isExpanded: true,
@@ -775,7 +774,8 @@ class _SubjectDropdownState extends State<_SubjectDropdown> {
     final validValue =
     items.any((i) => i.value == _selected) ? _selected : null;
     return DropdownButtonFormField<int>(
-      value: validValue,
+      key: ValueKey('subject_$validValue'),
+      initialValue: validValue,
       decoration: widget.inputDeco,
       dropdownColor: scheme.surface,
       isExpanded: true,

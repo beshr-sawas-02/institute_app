@@ -4,12 +4,10 @@ import 'package:get/get.dart';
 import '../data/models/attendance_model.dart';
 import '../data/models/section_model.dart';
 import '../data/repositories/attendance_repository.dart';
-import '../data/repositories/student_repository.dart';
 import '../utils/helpers.dart';
 
 class AttendanceController extends GetxController {
   final AttendanceRepository _repo = AttendanceRepository();
-  final StudentRepository _studentRepo = StudentRepository();
 
   // ==================== State ====================
   final isLoading = false.obs;

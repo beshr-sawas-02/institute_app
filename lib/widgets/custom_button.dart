@@ -1,4 +1,4 @@
-// lib/widgets/custom_button.dart
+﻿// lib/widgets/custom_button.dart
 
 import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
@@ -39,7 +39,6 @@ class CustomButton extends StatelessWidget {
       case ButtonType.danger:
         return _buildDanger();
       case ButtonType.primary:
-      default:
         return _buildPrimary();
     }
   }
@@ -52,7 +51,7 @@ class CustomButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
-          disabledBackgroundColor: AppColors.primary.withOpacity(0.6),
+          disabledBackgroundColor: AppColors.primary.withValues(alpha: 0.6),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
           ),
@@ -103,7 +102,7 @@ class CustomButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.error,
-          disabledBackgroundColor: AppColors.error.withOpacity(0.6),
+          disabledBackgroundColor: AppColors.error.withValues(alpha: 0.6),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
           ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
@@ -59,13 +59,13 @@ class CustomTextField extends StatelessWidget {
     // لون الخلفية: يتغير تلقائياً مع الثيم
     final fillColor = enabled
         ? scheme.surfaceContainerHighest
-        : scheme.surfaceContainerHighest.withOpacity(0.5);
+        : scheme.surfaceContainerHighest.withValues(alpha: 0.5);
 
     // لون النص: يتغير تلقائياً
     final textColor = scheme.onSurface;
 
     // لون الـ hint: أفتح من النص
-    final hintColor = scheme.onSurface.withOpacity(0.45);
+    final hintColor = scheme.onSurface.withValues(alpha: 0.45);
 
     // لون الـ border
     final borderColor = isDark
@@ -79,7 +79,7 @@ class CustomTextField extends StatelessWidget {
         Text(
           label,
           style: AppTextStyles.inputLabel.copyWith(
-            color: scheme.onSurface.withOpacity(0.8),
+            color: scheme.onSurface.withValues(alpha: 0.8),
           ),
         ),
         const SizedBox(height: 6),
@@ -163,7 +163,7 @@ class CustomTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                   AppConstants.radiusMedium),
               borderSide: BorderSide(
-                  color: borderColor.withOpacity(0.5),
+                  color: borderColor.withValues(alpha: 0.5),
                   width: 1),
             ),
           ),
@@ -212,19 +212,19 @@ class SearchTextField extends StatelessWidget {
         hintStyle: TextStyle(
           fontFamily: 'Cairo',
           fontSize: 14,
-          color: scheme.onSurface.withOpacity(0.45),
+          color: scheme.onSurface.withValues(alpha: 0.45),
           height: 1.5,
         ),
         prefixIcon: Icon(
           Icons.search,
-          color: scheme.onSurface.withOpacity(0.5),
+          color: scheme.onSurface.withValues(alpha: 0.5),
           size: 22,
         ),
         suffixIcon: controller?.text.isNotEmpty == true
             ? IconButton(
           icon: Icon(
             Icons.close,
-            color: scheme.onSurface.withOpacity(0.5),
+            color: scheme.onSurface.withValues(alpha: 0.5),
             size: 20,
           ),
           onPressed: () {

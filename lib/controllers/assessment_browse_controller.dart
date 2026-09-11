@@ -8,7 +8,6 @@ import '../data/models/assessment_model.dart';
 import '../data/repositories/payment_repository.dart';
 import '../data/repositories/assessment_repository.dart';
 import '../utils/helpers.dart';
-import '../utils/constants.dart';
 
 class AssessmentBrowseController extends GetxController {
   final GradeRepository _gradeRepo = GradeRepository();

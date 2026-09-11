@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/attendance_controller.dart';
+import '../../data/models/attendance_model.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_styles.dart';
 import '../../utils/helpers.dart';
@@ -119,7 +120,7 @@ class _SummaryBar extends GetView<AttendanceController> {
 }
 
 class _AttendanceRow extends GetView<AttendanceController> {
-  final entry;
+  final AttendanceSheetEntry entry;
   const _AttendanceRow({required this.entry});
 
   List<Map<String, dynamic>> get _statuses => [
@@ -155,7 +156,7 @@ class _AttendanceRow extends GetView<AttendanceController> {
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
               color: status != 'present'
-                  ? color.withOpacity(0.3)
+                  ? color.withValues(alpha: 0.3)
                   : Colors.transparent),
           boxShadow: [
             BoxShadow(
@@ -209,7 +210,7 @@ class _AttendanceRow extends GetView<AttendanceController> {
                       padding: const EdgeInsets.symmetric(vertical: 6),
                       decoration: BoxDecoration(
                         color: isSelected
-                            ? _statusColor(val).withOpacity(0.15)
+                            ? _statusColor(val).withValues(alpha: 0.15)
                             : scheme.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(

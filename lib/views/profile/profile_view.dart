@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
 import '../../routes/app_routes.dart';
@@ -51,7 +51,7 @@ class ProfileView extends GetView<AuthController> {
                     StatusBadge(
                       label: AppConstants.getUserRole(user.role),
                       color: scheme.surface,
-                      bgColor: Colors.white.withOpacity(0.2),
+                      bgColor: Colors.white.withValues(alpha: 0.2),
                     ),
                   ],
                 ),

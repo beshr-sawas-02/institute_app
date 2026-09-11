@@ -1,4 +1,4 @@
-// lib/utils/app_theme.dart
+﻿// lib/utils/app_theme.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -39,11 +39,11 @@ class AppTheme {
         brightness: brightness,
         primary: primary,
         onPrimary: Colors.white,
-        primaryContainer: primary.withOpacity(0.15),
+        primaryContainer: primary.withValues(alpha: 0.15),
         onPrimaryContainer: primary,
         secondary: secondaryC,
         onSecondary: Colors.white,
-        secondaryContainer: secondaryC.withOpacity(0.15),
+        secondaryContainer: secondaryC.withValues(alpha: 0.15),
         onSecondaryContainer: secondaryC,
         tertiary: accentC,
         onTertiary: Colors.white,
@@ -181,7 +181,7 @@ class AppTheme {
       ),
 
       dividerTheme: DividerThemeData(
-          color: borderCol.withOpacity(0.5), thickness: 0.5, space: 1),
+          color: borderCol.withValues(alpha: 0.5), thickness: 0.5, space: 1),
 
       dialogTheme: DialogThemeData(
         backgroundColor: surface,
@@ -224,7 +224,7 @@ class AppTheme {
 
       chipTheme: ChipThemeData(
         backgroundColor: surface2,
-        selectedColor: primary.withOpacity(0.15),
+        selectedColor: primary.withValues(alpha: 0.15),
         labelStyle: AppTextStyles.labelMedium.copyWith(color: textColor),
         padding: const EdgeInsets.symmetric(
             horizontal: AppConstants.paddingSmall,
@@ -246,8 +246,8 @@ class AppTheme {
 
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: primary,
-        linearTrackColor: primary.withOpacity(0.15),
-        circularTrackColor: primary.withOpacity(0.15),
+        linearTrackColor: primary.withValues(alpha: 0.15),
+        circularTrackColor: primary.withValues(alpha: 0.15),
       ),
 
       tabBarTheme: TabBarThemeData(

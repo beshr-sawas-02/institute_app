@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
 import '../utils/constants.dart';
@@ -25,7 +25,7 @@ class StatusBadge extends StatelessWidget {
       padding:
       const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
-        color: bgColor ?? color.withOpacity(0.12),
+        color: bgColor ?? color.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text(
@@ -74,7 +74,7 @@ class StatCard extends StatelessWidget {
           BorderRadius.circular(AppConstants.radiusLarge),
           boxShadow: [
             BoxShadow(
-              color: color.withOpacity(0.10),
+              color: color.withValues(alpha: 0.10),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),
@@ -90,7 +90,7 @@ class StatCard extends StatelessWidget {
                   width: 30,
                   height: 30,
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.12),
+                    color: color.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(icon, color: color, size: 15),
@@ -264,7 +264,7 @@ class InitialsAvatar extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        color: bg.withOpacity(0.15),
+        color: bg.withValues(alpha: 0.15),
         shape: BoxShape.circle,
       ),
       child: Center(

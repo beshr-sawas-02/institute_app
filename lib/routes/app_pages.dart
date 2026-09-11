@@ -13,10 +13,8 @@ import '../views/attendance/attendance_view.dart';
 import '../views/attendance/attendance_sheet_view.dart';
 import '../views/grades/grades_view.dart';
 import '../views/grades/assessment_detail_view.dart';
-import '../views/grades/assessment_form_view.dart';
 import '../views/grades/subject_assessments_view.dart';
 import '../views/profile/profile_view.dart';
-import '../views/profile/change_password_view.dart';
 import 'app_routes.dart';
 
 class AppPages {

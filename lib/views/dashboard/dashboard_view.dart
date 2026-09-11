@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
 import '../../controllers/dashboard_controller.dart';
@@ -42,7 +42,7 @@ class DashboardView extends GetView<DashboardController> {
         background: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [AppColors.primary, AppColors.primary.withOpacity(0.85)],
+              colors: [AppColors.primary, AppColors.primary.withValues(alpha: 0.85)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -77,7 +77,7 @@ class DashboardView extends GetView<DashboardController> {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.15),
+                    color: Colors.white.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
@@ -168,7 +168,7 @@ class DashboardView extends GetView<DashboardController> {
                       width: 36,
                       height: 36,
                       decoration: BoxDecoration(
-                        color: rateColor.withOpacity(0.1),
+                        color: rateColor.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Icon(Icons.today_outlined,
@@ -186,7 +186,7 @@ class DashboardView extends GetView<DashboardController> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
-                      color: AppColors.primary.withOpacity(0.08),
+                      color: AppColors.primary.withValues(alpha: 0.08),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text('dashboard_register_attendance'.tr,
@@ -233,7 +233,7 @@ class DashboardView extends GetView<DashboardController> {
               padding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               decoration: BoxDecoration(
-                color: AppColors.warning.withOpacity(0.08),
+                color: AppColors.warning.withValues(alpha: 0.08),
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(18),
                   bottomRight: Radius.circular(18),
@@ -272,7 +272,7 @@ class DashboardView extends GetView<DashboardController> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.08),
+          color: color.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
@@ -379,7 +379,7 @@ class DashboardView extends GetView<DashboardController> {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.1),
+                  color: color.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(icon, color: color, size: 20),
@@ -435,7 +435,7 @@ class DashboardView extends GetView<DashboardController> {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: AppColors.success.withOpacity(0.1),
+                      color: AppColors.success.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Icon(Icons.account_balance_outlined,
@@ -451,7 +451,7 @@ class DashboardView extends GetView<DashboardController> {
                 padding:
                 const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: balanceColor.withOpacity(0.08),
+                  color: balanceColor.withValues(alpha: 0.08),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -567,9 +567,9 @@ class DashboardView extends GetView<DashboardController> {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.05),
+        color: color.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withOpacity(0.15)),
+        border: Border.all(color: color.withValues(alpha: 0.15)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -629,7 +629,7 @@ class DashboardView extends GetView<DashboardController> {
             gradient: LinearGradient(
               colors: [
                 AppColors.primary,
-                AppColors.primary.withOpacity(0.8)
+                AppColors.primary.withValues(alpha: 0.8)
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -642,7 +642,7 @@ class DashboardView extends GetView<DashboardController> {
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15),
+                  color: Colors.white.withValues(alpha: 0.15),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(Icons.people_rounded,
@@ -665,7 +665,7 @@ class DashboardView extends GetView<DashboardController> {
                   Text(
                     'dashboard_total_students'.tr,
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white.withValues(alpha: 0.8),
                       fontSize: 13,
                       fontFamily: 'Cairo',
                     ),
@@ -677,7 +677,7 @@ class DashboardView extends GetView<DashboardController> {
                 'dashboard_grades_count'.tr
                     .replaceAll('@count', '${dist.length}'),
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withValues(alpha: 0.8),
                   fontSize: 12,
                   fontFamily: 'Cairo',
                 ),
@@ -712,7 +712,7 @@ class DashboardView extends GetView<DashboardController> {
                   borderRadius: BorderRadius.circular(14),
                   boxShadow: [
                     BoxShadow(
-                      color: color.withOpacity(0.12),
+                      color: color.withValues(alpha: 0.12),
                       blurRadius: 10,
                       offset: const Offset(0, 3),
                     )
@@ -731,7 +731,7 @@ class DashboardView extends GetView<DashboardController> {
                           width: 30,
                           height: 30,
                           decoration: BoxDecoration(
-                            color: color.withOpacity(0.1),
+                            color: color.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Icon(icon, color: color, size: 16),

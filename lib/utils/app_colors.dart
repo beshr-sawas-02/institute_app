@@ -1,4 +1,4 @@
-// lib/utils/app_colors.dart
+﻿// lib/utils/app_colors.dart
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -62,7 +62,7 @@ class AppColors {
   static Color get success      => _c(_suL, _suD);
   static Color get error        => _c(_daL, _daD);
   static Color get border       => _c(_boL, _boD);
-  static Color get divider      => _c(_boL.withOpacity(0.5), _boD.withOpacity(0.5));
+  static Color get divider      => _c(_boL.withValues(alpha: 0.5), _boD.withValues(alpha: 0.5));
   static Color get shadow       => _dark ? const Color(0x33000000) : const Color(0x14000000);
   static Color get info         => secondary;
 

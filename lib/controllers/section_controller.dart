@@ -79,6 +79,7 @@ class SectionController extends GetxController {
     selectedGradeId.value = gradeId;
   }
 
+  @override
   Future<void> refresh() => loadAll();
 }
 
@@ -111,5 +112,6 @@ class GradeController extends GetxController {
     }
   }
 
+  @override
   Future<void> refresh() => loadGrades();
 }

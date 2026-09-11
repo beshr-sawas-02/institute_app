@@ -8,7 +8,6 @@ import '../models/notification_model.dart';
 import '../models/payment_model.dart';
 import '../models/section_model.dart';
 import '../models/subject_model.dart';
-import '../models/teacher_model.dart';
 import '../providers/api_provider.dart';
 
 class PaymentRepository {

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/assessment_browse_controller.dart';
 import '../../controllers/assessment_controller.dart';
@@ -7,7 +7,6 @@ import '../../data/models/subject_model.dart';
 import '../../routes/app_routes.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_styles.dart';
-import '../../utils/helpers.dart';
 import '../../utils/constants.dart';
 import '../../widgets/app_widgets.dart';
 import '../../widgets/empty_widget.dart';
@@ -178,7 +177,7 @@ class _StatsHeader extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [AppColors.primary.withOpacity(0.9), AppColors.primary],
+          colors: [AppColors.primary.withValues(alpha: 0.9), AppColors.primary],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -240,7 +239,7 @@ class _StatItem extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                   fontFamily: 'Cairo')),
           Text(label,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.white60, fontSize: 10, fontFamily: 'Cairo')),
         ],
       ),
@@ -252,7 +251,7 @@ class _Divider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 1, height: 40, color: Colors.white.withOpacity(0.2));
+        width: 1, height: 40, color: Colors.white.withValues(alpha: 0.2));
   }
 }
 
@@ -338,7 +337,7 @@ class _StudentScoreRow extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 18,
-              backgroundColor: AppColors.primary.withOpacity(0.08),
+              backgroundColor: AppColors.primary.withValues(alpha: 0.08),
               child: Text(
                 name.isNotEmpty ? name[0] : '؟',
                 style: TextStyle(
@@ -374,7 +373,7 @@ class _StudentScoreRow extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.1),
+                  color: color.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Text(

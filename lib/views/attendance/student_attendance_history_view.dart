@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/attendance_controller.dart';
+import '../../data/models/attendance_model.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_styles.dart';
 import '../../utils/helpers.dart';
@@ -169,7 +170,7 @@ class StudentAttendanceHistoryView
 }
 
 class _HistoryTile extends StatelessWidget {
-  final record;
+  final AttendanceModel record;
   const _HistoryTile({required this.record});
 
   Color _statusColor(String status) {
@@ -218,8 +219,7 @@ class _HistoryTile extends StatelessWidget {
                   style: AppTextStyles.bodyMedium
                       .copyWith(fontWeight: FontWeight.w600),
                 ),
-                if (record.lateMinutes != null &&
-                    record.lateMinutes > 0) ...[
+                if (record.lateMinutes > 0) ...[
                   const SizedBox(height: 2),
                   Text(
                       'history_late_minutes'.tr.replaceAll(

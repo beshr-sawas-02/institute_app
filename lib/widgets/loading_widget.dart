@@ -118,13 +118,13 @@ class ShimmerCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          ShimmerBox(width: 48, height: 48, radius: 24),
+          const ShimmerBox(width: 48, height: 48, radius: 24),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ShimmerBox(width: double.infinity, height: 14, radius: 6),
+                const ShimmerBox(width: double.infinity, height: 14, radius: 6),
                 const SizedBox(height: 8),
                 ShimmerBox(
                     width: MediaQuery.of(context).size.width * 0.4,

@@ -3,14 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/auth_controller.dart';
-import '../data/repositories/auth_repository.dart';
 import '../routes/app_routes.dart';
 
 class AuthMiddleware extends GetMiddleware {
   @override
   int? get priority => 1;
-
-  final AuthRepository _repo = AuthRepository();
 
   @override
   RouteSettings? redirect(String? route) {

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/auth_controller.dart';
 import '../../routes/app_routes.dart';
@@ -32,7 +32,7 @@ class LoginView extends GetView<AuthController> {
                   borderRadius: BorderRadius.circular(22),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primary.withOpacity(0.3),
+                      color: AppColors.primary.withValues(alpha: 0.3),
                       blurRadius: 20,
                       offset: const Offset(0, 8),
                     ),
@@ -138,7 +138,7 @@ class LoginView extends GetView<AuthController> {
                             width: 44,
                             height: 44,
                             decoration: BoxDecoration(
-                              color: AppColors.secondary.withOpacity(0.1),
+                              color: AppColors.secondary.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Icon(Icons.badge_outlined,
@@ -159,7 +159,7 @@ class LoginView extends GetView<AuthController> {
                               ],
                             ),
                           ),
-                          Icon(Icons.arrow_forward_ios_rounded,
+                          const Icon(Icons.arrow_forward_ios_rounded,
                               color: AppColors.grey400, size: 16),
                         ],
                       ),

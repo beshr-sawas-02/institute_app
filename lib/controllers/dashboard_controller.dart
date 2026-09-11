@@ -67,6 +67,7 @@ class DashboardController extends GetxController {
   }
 
   // ==================== Refresh ====================
+  @override
   Future<void> refresh() async {
     await Future.wait([
       loadStats(showLoader: false),

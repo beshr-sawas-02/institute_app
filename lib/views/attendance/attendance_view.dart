@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/attendance_controller.dart';
 import '../../controllers/section_controller.dart';
 import '../../controllers/locale_controller.dart';
+import '../../data/models/section_model.dart';
 import '../../routes/app_routes.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_styles.dart';
@@ -49,7 +50,7 @@ class AttendanceView extends StatelessWidget {
                   gradient: LinearGradient(
                     colors: [
                       AppColors.primary,
-                      AppColors.primary.withOpacity(0.82),
+                      AppColors.primary.withValues(alpha: 0.82),
                     ],
                     begin: Alignment.centerRight,
                     end: Alignment.centerLeft,
@@ -57,7 +58,7 @@ class AttendanceView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primary.withOpacity(0.28),
+                      color: AppColors.primary.withValues(alpha: 0.28),
                       blurRadius: 12,
                       offset: const Offset(0, 4),
                     ),
@@ -69,7 +70,7 @@ class AttendanceView extends StatelessWidget {
                       width: 38,
                       height: 38,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.18),
+                        color: Colors.white.withValues(alpha: 0.18),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.person_add_rounded,
@@ -166,7 +167,7 @@ class _DateSelector extends StatelessWidget {
               padding:
               const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.15),
+                color: Colors.white.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text('change'.tr,
@@ -181,7 +182,7 @@ class _DateSelector extends StatelessWidget {
 }
 
 class _SectionCard extends StatelessWidget {
-  final section;
+  final SectionModel section;
   const _SectionCard({required this.section});
 
   @override
@@ -213,7 +214,7 @@ class _SectionCard extends StatelessWidget {
               width: 46,
               height: 46,
               decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(0.1),
+                color: AppColors.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(Icons.class_rounded,

@@ -1,4 +1,4 @@
-// lib/widgets/language_switch.dart
+﻿// lib/widgets/language_switch.dart
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -56,7 +56,7 @@ class _LanguageToggle extends StatelessWidget {
             color: AppColors.grey100,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: AppColors.primary.withOpacity(0.15),
+              color: AppColors.primary.withValues(alpha: 0.15),
               width: 1,
             ),
           ),
@@ -79,7 +79,7 @@ class _LanguageToggle extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.primary.withOpacity(0.3),
+                        color: AppColors.primary.withValues(alpha: 0.3),
                         blurRadius: 8,
                         offset: const Offset(0, 2),
                       ),
@@ -144,7 +144,7 @@ class LanguageSwitchIcon extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 8),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.15),
+            color: Colors.white.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(

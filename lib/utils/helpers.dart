@@ -88,7 +88,7 @@ class Helpers {
       if (diff.inDays < 7) return 'days_ago'.tr.replaceAll('@count', '${diff.inDays}');
       return formatDate(dateString);
     } catch (_) {
-      return dateString ?? '—';
+      return dateString;
     }
   }
 

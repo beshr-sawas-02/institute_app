@@ -93,7 +93,7 @@ class PdfHelper {
             ],
           ),
           pw.Text('معهد النور',
-              style: pw.TextStyle(font: regular, fontSize: 12, color: PdfColor.fromInt(0xB3FFFFFF))),
+              style: pw.TextStyle(font: regular, fontSize: 12, color: const PdfColor.fromInt(0xB3FFFFFF))),
         ],
       ),
     );

@@ -215,29 +215,29 @@ enum UserRole {
 
 // --- أيام الأسبوع ---
 enum DayOfWeek {
-  Sunday,
-  Monday,
-  Tuesday,
-  Wednesday,
-  Thursday,
-  Friday,
-  Saturday;
+  sunday,
+  monday,
+  tuesday,
+  wednesday,
+  thursday,
+  friday,
+  saturday;
 
   String get label {
     switch (this) {
-      case DayOfWeek.Sunday:
+      case DayOfWeek.sunday:
         return 'الأحد';
-      case DayOfWeek.Monday:
+      case DayOfWeek.monday:
         return 'الاثنين';
-      case DayOfWeek.Tuesday:
+      case DayOfWeek.tuesday:
         return 'الثلاثاء';
-      case DayOfWeek.Wednesday:
+      case DayOfWeek.wednesday:
         return 'الأربعاء';
-      case DayOfWeek.Thursday:
+      case DayOfWeek.thursday:
         return 'الخميس';
-      case DayOfWeek.Friday:
+      case DayOfWeek.friday:
         return 'الجمعة';
-      case DayOfWeek.Saturday:
+      case DayOfWeek.saturday:
         return 'السبت';
     }
   }

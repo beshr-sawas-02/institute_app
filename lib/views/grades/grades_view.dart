@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/assessment_browse_controller.dart';
 import '../../controllers/assessment_controller.dart';
@@ -128,7 +128,7 @@ class _GradeTile extends StatelessWidget {
                       width: 42,
                       height: 42,
                       decoration: BoxDecoration(
-                        color: AppColors.primary.withOpacity(0.1),
+                        color: AppColors.primary.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Icon(Icons.school_outlined,
@@ -165,7 +165,7 @@ class _GradeTile extends StatelessWidget {
                       AnimatedRotation(
                         turns: isExpanded ? 0.5 : 0,
                         duration: const Duration(milliseconds: 200),
-                        child: Icon(
+                        child: const Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: AppColors.grey500),
                       ),
@@ -220,7 +220,7 @@ class _SectionTile extends StatelessWidget {
           color: scheme.surfaceContainerHighest,
           border: Border(
             right: BorderSide(
-                color: AppColors.primary.withOpacity(0.3),
+                color: AppColors.primary.withValues(alpha: 0.3),
                 width: 3),
           ),
         ),
@@ -238,7 +238,7 @@ class _SectionTile extends StatelessWidget {
                       width: 36,
                       height: 36,
                       decoration: BoxDecoration(
-                        color: AppColors.info.withOpacity(0.1),
+                        color: AppColors.info.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(Icons.door_front_door_outlined,
@@ -276,7 +276,7 @@ class _SectionTile extends StatelessWidget {
                       AnimatedRotation(
                         turns: isExpanded ? 0.5 : 0,
                         duration: const Duration(milliseconds: 200),
-                        child: Icon(
+                        child: const Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: AppColors.grey400,
                             size: 20),
@@ -335,7 +335,7 @@ class _SubjectTile extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             right: BorderSide(
-                color: AppColors.success.withOpacity(0.4),
+                color: AppColors.success.withValues(alpha: 0.4),
                 width: 3),
           ),
         ),
@@ -346,7 +346,7 @@ class _SubjectTile extends StatelessWidget {
               width: 32,
               height: 32,
               decoration: BoxDecoration(
-                color: AppColors.success.withOpacity(0.1),
+                color: AppColors.success.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(Icons.book_outlined,
@@ -371,7 +371,7 @@ class _SubjectTile extends StatelessWidget {
                 ],
               ),
             ),
-            Icon(Icons.chevron_right,
+            const Icon(Icons.chevron_right,
                 color: AppColors.grey400, size: 20),
           ],
         ),
